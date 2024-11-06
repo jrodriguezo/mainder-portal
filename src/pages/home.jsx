@@ -22,7 +22,8 @@ function Home() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [indexJob, setIndexJob] = useState(0);
 
-  function openModal() {
+  function openModal(index) {
+    setIndexJob(index);
     setIsOpen(true);
   }
 
@@ -43,7 +44,6 @@ function Home() {
           jobOffers = [...jobOffers, ...agencyJobs];
         }
 
-        console.log(jobOffers);
         setJobs(jobOffers);
       } catch (error) {
         console.error("Error fetching agencies or jobs:", error);
@@ -63,7 +63,7 @@ function Home() {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <JobListing job={jobs[0]} disabled={true} />
+        <JobListing job={jobs[indexJob]} disabled={true} />
       </Modal>
       <h1>
         Open job positions <span>available</span>
@@ -72,11 +72,11 @@ function Home() {
         <p>Please be patience, we are loading the jobs available...</p>
       )}
       <ul>
-        {jobs.map((job) => {
+        {jobs.map((job, index) => {
           return (
             <>
               <JobListing key={job.id} job={job} />
-              <button onClick={openModal}>See more</button>
+              <button onClick={() => openModal(index)}>See more</button>
             </>
           );
         })}
