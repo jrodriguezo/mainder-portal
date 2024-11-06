@@ -23,3 +23,6 @@ Go to http://localhost:5173
 - Shadcn + Tailwind CSS
 - Module CSS
 - Fetch API
+
+
+<img width="1412" alt="image" src="https://github.com/user-attachments/assets/ea8305cb-a9c0-46c9-a0e0-63389d5e43ca">
